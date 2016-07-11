@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Field Of Vision</title>
+    <meta name="description" content="Discover The World in 360">
+    <script src="dist/aframe.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  </head>
+  <body>
+  
+  <a-asset>
+    
+    <!-- Cursor Design 
+    
+     <a-asset>
+
+      <a-mixin id="cursor"  geometry="primitive: ring; segmentsTheta: 12; 
+      radiusOuter: 0.10; radiusInner: 0.06" material="color: gray" cursor></a-mixin>
+      <a-mixin id="cursor-hovering" material="color: blue"></a-mixin>
+      
+      <a-mixin id="click-animation" begin="click" easing="ease-in" attribute="scale"
+               fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-mixin>
+                     
+      <a-mixin id="fuse-animation" begin="fusing" easing="ease-in" attribute="scale"
+               fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-mixin>
+    </a-asset>
+    -->
+    
+    
+    <a-scene>
+    
+
+       <!-- Model -->
+    <!--  <a-entity id="model" position="0 0 -2">
+        <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000" easing="linear" repeat="inifite"></a-animation>
+        <a-model position="-.35 0 .55" rotation="0 -20 0" scale="0.1 0.1 0.1" src="../_models/tie3.dae"></a-model>
+        <a-image src="../_images/radial-shadow-2.png" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
+      </a-entity>  -->
+          
+          
+ 	<!-- Cursor Animation -->
+     <!-- <a-entity camera position="0 1.6 0" look-controls>
+        <a-entity mixin="cursor" position="0 0 -2">
+          <a-animation mixin="click-animation"></a-animation>
+          <a-animation mixin="fuse-animation"></a-animation>
+        </a-entity>
+      </a-entity>
+      -->
+            <a-entity position="0 1.6 0">
+        <a-camera id="camera">
+         <a-entity cursor="fuse: true; maxDistance: 30; timeout: 1000"
+          position="0 0 -2"
+          geometry="primitive: ring; 
+          			radiusOuter: 0.2;
+                    radiusInner: 0.1"
+          material="color: white; shader: flat"
+           >
+  <a-animation begin="click" easing="ease-in" attribute="scale"
+               fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+  <a-animation begin="fusing" easing="ease-in" attribute="scale"
+               fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+</a-entity>
+        </a-camera>
+      </a-entity>
+      
+    
+	<!-- Background -->          
+      <a-sky id="pano" src="images/360/polysphere2.jpg" rotation="0 -60 0" 
+      radius="5000" color="#fff"></a-sky>
+      
+      
+	<!-- <a-entity>
+        <a-cylinder position="0 -0.15 0" rotation="0 70 0" radius="4" height="1.8" side="back" 
+        open-ended="true" theta-length="220" color="#000000" opacity="0.5"></a-cylinder>
+      </a-entity> -->
+      
+      
+     <!-- Instructions -->         
+     <a-image id="drag" src="images/icons/clickdrag.png" look-at="#camera" width="28" height="4" 
+     scale="0.2 0.2 0.2" position="0 2 -6">
+     </a-image>
+        
+        
+    <!-- UI Selection Board -->            
+   <a-curvedimage id="water" src="images/CGI/ocean.png" radius="5.7" theta-length="40" height="2" 
+   opacity="1" position="0 0.6 0" rotation="0 160 0" scale=".4 .4 .4">
+	<!-- <a-mouseenter opacity="0.5"></a-mouseenter>
+        <a-mouseleave opacity="1"></a-mouseleave>-->
+      </a-curvedimage>
+      
+    <a-curvedimage id="stars" src="images/HappyFinish/lambo01.jpg" radius="5.7" theta-length="40" 
+    height="2" position="0 0.6 0" rotation="0 119 0" scale=".4 .4 .4">
+      </a-curvedimage>
+      
+      <a-curvedimage id="city" src="images/HappyFinish/Glen01.jpg" radius="5.7" theta-length="40" 
+    height="2" position="0 -0.25 0" rotation="0 119 0" scale=".4 .4 .4">
+      </a-curvedimage>
+      
+     <a-curvedimage id="forest" src="images/HappyFinish/Centrifuge.jpg" radius="5.7" theta-length="40" 
+     height="2" position="0 0.6 0" rotation="0 201 0" scale=".4 .4 .4">
+      </a-curvedimage>
+      
+       <a-curvedimage id="china" src="images/CGI/china.png" radius="5.7" theta-length="40" 
+     height="2" position="0 -0.25 0" rotation="0 201 0" scale=".4 .4 .4">
+      </a-curvedimage>
+      
+       <a-curvedimage id="mars" src="images/CGI/mars.png" radius="5.7" theta-length="40" 
+       height="2" position="0 0.6 0"  rotation="0 242 0" scale=".4 .4 .4">    
+    </a-curvedimage>
+    
+     </a-curvedimage>     
+      <a-curvedimage id="car" src="images/CGI/car.png" radius="5.7" theta-length="40" 
+      height="2" position="0 0.6 0" rotation="0 78 0" scale=".4 .4 .4">
+      </a-curvedimage>
+   
+   
+ <!--  UI icon hide display  -->   
+    <a-curvedimage id="hideicons" src="images/icons/turnoff.png" radius="5.7" theta-length="20" 
+    height="1" position="0 -0.25 0" rotation="-2 168 0" scale=".4 .4 .4" >
+      </a-curvedimage>
+      
+      <a-curvedimage id="displayicons" src="images/icons/turnon.png" radius="5.7" theta-length="20" 
+      height="1" position="0 -0.25 0" rotation="-2 168 0" scale=".4 .4 .4" visible="false">
+      </a-curvedimage>
+
+   
+      <!-- <a-video position="-150 0 -150" rotation="0 45 0" src="https://ucarecdn.com/4130c599-445f-4e76-9052-49978e972641/" width="160" height="90" autoplay="true" loop="true"></a-video> -->
+        
+    </a-scene>
+  </body>
+  
+  <script>
+        
+    var sky = document.querySelector('#pano');
+    
+    var forest = document.querySelector('#forest');
+    var water = document.querySelector('#water');
+    var stars = document.querySelector('#stars');	
+	var car = document.querySelector('#car');
+	var mars = document.querySelector('#mars');
+	var city = document.querySelector('#city');
+	
+	
+  //  var music = document.querySelector('#music');
+  //  document.querySelector('#music').addEventListener('click', function() {
+
+  //  music.setAttribute('src', 'music/piano.mp3'); 
+  //  });
+
+
+////////// HIDE UI //////////
+	 document.querySelector('#hideicons').addEventListener('click', function() {
+		 
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  displayicons.setAttribute('visible', 'true'); 
+	  displayicons.setAttribute('position', '0 0 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'false');
+	  forest.setAttribute('position', '0 -10000 0');
+	  
+	 // forest.setAttribute('disabled', 'true');
+	  
+	  stars.setAttribute('visible', 'false');
+	  stars.setAttribute('position', '0 -10000 0');
+	  water.setAttribute('visible', 'false');
+	  water.setAttribute('position', '0 -10000 0');
+	  mars.setAttribute('visible', 'false');
+	  mars.setAttribute('position', '0 -10000 0'); 
+	  car.setAttribute('visible', 'false');
+	  car.setAttribute('position', '0 -10000 0'); 
+	  city.setAttribute('visible', 'false');
+	  city.setAttribute('position', '0 -10000 0');	
+	  china.setAttribute('visible', 'false');
+	  china.setAttribute('position', '0 -10000 0');  
+   
+    });
+
+////////// DISPLAY UI //////////	
+	 document.querySelector('#displayicons').addEventListener('click', function() {
+		 
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  hideicons.setAttribute('visible', 'true');
+	  hideicons.setAttribute('position', '0 0 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0'); 
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0'); 
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');  
+  
+    });
+
+////////// 360 PANO SELECTIONS //////////		
+	 document.querySelector('#car').addEventListener('click', function() {
+		 
+      sky.setAttribute('src', 'images/360/car2.jpg');
+	  sky.setAttribute('rotation', '0 120 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0'); 
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0');  
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');   
+   
+    });
+	
+	 document.querySelector('#mars').addEventListener('click', function() {
+		 
+      sky.setAttribute('src', 'images/360/mars2.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0');
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');     
+	
+	});
+	
+	
+    document.querySelector('#water').addEventListener('click', function() {
+		
+      sky.setAttribute('src', 'images/360/atlantic2.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0');
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');     
+    
+    });
+	
+	 document.querySelector('#china').addEventListener('click', function() {
+		
+      sky.setAttribute('src', 'images/360/china2.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');     
+    
+    });
+    
+    document.querySelector('#stars').addEventListener('click', function() {
+		
+      sky.setAttribute('src', 'images/HappyFinish/lambo01.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0'); 
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');    
+    
+    });
+    
+	 document.querySelector('#city').addEventListener('click', function() {
+		
+      sky.setAttribute('src', 'images/HappyFinish/Glen01.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  forest.setAttribute('visible', 'true');
+	  forest.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');
+    
+    });
+	
+    document.querySelector('#forest').addEventListener('click', function() {
+		
+      sky.setAttribute('src', 'images/HappyFinish/Centrifuge.jpg');
+	  sky.setAttribute('rotation', '0 -60 0');
+	  
+	  this.setAttribute('visible', 'false');
+	  this.setAttribute('position', '0 -10000 0');
+	  
+	  drag.setAttribute('visible', 'false');
+	  
+	  stars.setAttribute('visible', 'true');
+	  stars.setAttribute('position', '0 0.6 0');
+	  water.setAttribute('visible', 'true');
+	  water.setAttribute('position', '0 0.6 0');
+	  mars.setAttribute('visible', 'true');
+	  mars.setAttribute('position', '0 0.6 0');
+	  car.setAttribute('visible', 'true');
+	  car.setAttribute('position', '0 0.6 0');
+	  city.setAttribute('visible', 'true');
+	  city.setAttribute('position', '0 -0.25 0');
+	  china.setAttribute('visible', 'true');
+	  china.setAttribute('position', '0 -0.25 0');     
+  
+    });
+    
+  </script>
+</html>
