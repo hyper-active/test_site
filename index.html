@@ -1,112 +1,23 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Field Of Vision</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-loading">
+  <head>
+    <meta charset="utf-8">
+    <title>Composite</title>
+    <meta name="description" content="Composite — A-Frame">
+    <script src="../../../dist/aframe.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="lake" src="lake.jpg">
+        <img id="pdx" src="portland.png">
+        <a-asset-item id="sculpture" src="sculpture.dae"></a-asset-item>
+      </a-assets>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="images/avatar.png" alt="" /></span>
-							<h1>Field Of Vision</h1>
-							<p>Virtual Reality Production</p>
-						</header>
-
-						<hr />
-	<!--
-						<h2>Are you a real person?</h2>
-
-
-						<form method="post" action="#">
-							<div class="field">
-								<input type="text" name="name" id="name" placeholder="Name" />
-							</div>
-							<div class="field">
-								<input type="email" name="email" id="email" placeholder="Email" />
-							</div>
-
-							<div class="field">
-								<div class="select-wrapper">
-									<select name="department" id="department">
-										<option value="">Department</option>
-										<option value="sales">Sales</option>
-										<option value="tech">Tech Support</option>
-										<option value="null">/dev/null</option>
-									</select>
-								</div>
-							</div>
-						-->
-						<!--
-							<div class="field">
-								<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
-							</div>
-
-							<div class="field">
-								<input type="checkbox" id="human" name="human" /><label for="human">I'm real</label>
-							</div>
-							<div class="field">
-								<label>But do you like virtual reality?</label>
-								<input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
-								<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
-							</div>
-
-		        <hr />
-							-->
-
-							<!--
-							<ul class="actions">
-								<li><a href="VR.html" class="button">VR work portfolio</a></li>
-								<p> <font size="-4">VR stills image previews</font></p>
-							</ul>
-						</form>
-					-->
-						<!--
-							<ul class="actions">
-								<li><a href="http://immediatelymolotoved.com/" class="button">T.R.U.S.T - VR Game Blog</a></li>
-							</ul>
-						</form>
-
-
-						<hr />
-	-->
-						<footer>
-							<ul class="icons">
-								<li><a href="https://twitter.com/ArnaudBaernhoft" target="_blank" class="fa-twitter">Twitter</a></li>
-								<li><a href="https://uk.linkedin.com/in/arnaudbaernhoft" target="_blank" class="fa-linkedin">Instagram</a></li>
-								<li><a href="mailto:arnaud@fieldof.vision" class="fa-envelope-o">Facebook</a></li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Field Of Vision</li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
-
-	</body>
+      <a-sky src="#lake"></a-sky>
+      <a-collada-model src="#sculpture" position="0 0 -6"></a-collada-model>
+      <a-image src="#pdx" width="10" height="5" position="-2 1.2 -3"
+               scale="0.2 0.2 0.2"></a-image>
+    </a-scene>
+  </body>
 </html>
