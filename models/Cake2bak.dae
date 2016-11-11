@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
-  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2016-11-11T17:36:56Z</created><keywords></keywords><modified>2016-11-11T17:36:56Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2016-11-09T15:50:49Z</created><keywords></keywords><modified>2016-11-09T15:50:49Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
   <library_materials>
     <material id="FBXASC0485FBXASC032FBXASC045FBXASC032Default1" name="FBXASC0485FBXASC032FBXASC045FBXASC032Default1">
       <instance_effect url="#FBXASC0485FBXASC032FBXASC045FBXASC032Default1-fx"/>
@@ -492,12 +492,12 @@
     </geometry>
   </library_geometries>
   <library_visual_scenes>
-    <visual_scene id="cake2" name="cake2">
-      <node name="Cylinder003" id="Cylinder003" layer="Cake" sid="Cylinder003"><matrix sid="matrix">-0.709272 -0.210906 0.000000 20.285458 0.000000 -0.000000 0.739965 70.924606 -0.210906 0.709272 0.000000 -39.780659 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Cylinder003-lib"><bind_material><technique_common><instance_material symbol="FBXASC0485FBXASC032FBXASC045FBXASC032Default1" target="#FBXASC0485FBXASC032FBXASC045FBXASC032Default1"/><instance_material symbol="FBXASC0486FBXASC032FBXASC045FBXASC032Default1" target="#FBXASC0486FBXASC032FBXASC045FBXASC032Default1"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+    <visual_scene id="Cake2" name="Cake2">
+      <node name="Cylinder003" id="Cylinder003" layer="Cake" sid="Cylinder003"><matrix sid="matrix">-0.709272 -0.210906 0.000000 0.000000 0.000000 -0.000000 0.739965 26.349588 -0.210906 0.709272 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Cylinder003-lib"><bind_material><technique_common><instance_material symbol="FBXASC0485FBXASC032FBXASC045FBXASC032Default1" target="#FBXASC0485FBXASC032FBXASC045FBXASC032Default1"/><instance_material symbol="FBXASC0486FBXASC032FBXASC045FBXASC032Default1" target="#FBXASC0486FBXASC032FBXASC045FBXASC032Default1"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
       <extra><technique profile="MAX3D"><frame_rate>24.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.041667</start_time><end_time>8.333333</end_time></technique></extra>
     </visual_scene>
   </library_visual_scenes>
   <scene>
-    <instance_visual_scene url="#cake2"></instance_visual_scene>
+    <instance_visual_scene url="#Cake2"></instance_visual_scene>
   </scene>
 </COLLADA>
