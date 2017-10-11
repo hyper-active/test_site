@@ -1,61 +1,226 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>360&deg; Image Gallery</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
-    <script src="https://rawgit.com/aframevr/aframe/917c06889ee1f3f79b7b1bbd9eab9815f9512503/dist/aframe.min.js"></script>
-    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-template-component@3.0.1"></script>
-    <script src="components/set-image.js"></script>
-    <script src="components/update-raycaster.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="images/Coming_Soon_01.jpg">
-        <img id="cubes-thumb" crossorigin="anonymous" src="images/SCC_icon.jpg">
-        <img id="sechelt-thumb" crossorigin="anonymous" src="images/Coming_Soon_01.jpg">
-        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+	<head>
+		<title>Field Of Vision</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
 
-        <!-- Image link template to be reused. -->
-        <script id="link" type="text/nunjucks">
-          <a-plane class="link" height="1" width="1"
-            material="shader: flat; src: {{ thumb }}"
-            event-set__1="_event: mousedown; scale: 1 1 1"
-            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-            event-set__4="_event: mouseleave; scale: 1 1 1"
-            set-image="on: click; target: #image-360; src: {{ src }}"
-            sound="on: click; src: #click-sound"
-            update-raycaster="#cursor"></a-plane>
-        </script>
-      </a-assets>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"></a-sky>
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>FOV</strong> <span>Field Of Vision</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
 
-      <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
-      </a-entity>
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="BaconRoll.html">Bacon Roll</a></li>
+							<li><a href="DistantNightmare.html">Distant Nightmare</a></li>
+							<li><a href="DarkMechanism.html">Dark Mechanism</a></li>
+							<li><a href="SCC.html">Santa's Christmas Chrimney</a></li>
+						</ul>
+						<!--
+						<ul class="actions vertical">
+							<li><a href="#" class="button special fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						-->
+						</ul>
+					</nav>
 
-      <!-- Camera + cursor. -->
-      <a-entity camera look-controls>
-        <a-cursor id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__1="_event: mouseenter; color: springgreen"
-          event-set__2="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor>
-      </a-entity>
-    </a-scene>
-  </body>
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Hi, we are Field Of Vision</h1>
+							</header>
+							<div class="content">
+								<p>We are two gamers who create virtual reality experiences for all.<br />
+								We want to share our love for VR by making content.</p>
+								<ul class="actions">
+									<li><a href="#one" class="button next scrolly">Check out our VR games</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="images/baconroll01.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="BaconRoll.html" class="link">Bacon Roll</a></h3>
+										<p>Be the hero we've been baking for</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/DN01.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="DistantNightmare.html" class="link">Distant Nightmare</a></h3>
+										<p>Can you outrun your nightmares...on a bike...</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/DM01.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="DarkMechanism.html" class="link">Dark Mechanism</a></h3>
+										<p>Escape the mechanism of the clock</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/SCC01.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Santa's Christmas Chimney</a></h3>
+										<p>Santa's coming down your chimney</p>
+									</header>
+								</article>
+
+							<!--
+								<article>
+									<span class="image">
+										<img src="images/pic05.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Consequat</a></h3>
+										<p>Ipsum dolor sit amet</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic06.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Etiam</a></h3>
+										<p>Feugiat amet tempus</p>
+									</header>
+								</article>
+							-->
+
+							</section>
+
+						<!-- Two -->
+						<!--
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h2>Massa libero</h2>
+									</header>
+									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+									<ul class="actions">
+										<li><a href="landing.html" class="button next">Get Started</a></li>
+									</ul>
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="field half first">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="6"></textarea>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="special" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">hello@fieldof.vision</a>
+									</div>
+								</section>
+								<!--
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>(000) 000-0000 x12387</span>
+									</div>
+								</section>
+							-->
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-home"></span>
+										<h3>Address</h3>
+										<span>85 Great Portland Street <br />
+										First Floor, London<br />
+										England W1W 7LT</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Field Of Vision</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
